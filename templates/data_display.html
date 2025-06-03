@@ -1,0 +1,25 @@
+<h2 class="text-2xl font-bold mb-4">Data Mahasiswa</h2>
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+        <thead class="bg-gray-800 text-white">
+            <tr>
+                <th class="py-3 px-4 text-left">Nama</th>
+                <th class="py-3 px-4 text-left">NIM</th>
+                <th class="py-3 px-4 text-left">Mata Kuliah</th>
+                <th class="py-3 px-4 text-left">Gender</th>
+                <th class="py-3 px-4 text-left">Nilai</th>
+                <th class="py-3 px-4 text-left">Predikat</th>
+                <th class="py-3 px-4 text-left">Keterangan</th>
+            </tr>
+        </thead>
+        <tbody class="text-gray-700">
+            {% for row in data %}
+            <tr class="{% if loop.index is even %}bg-gray-100{% endif %} hover:bg-gray-200">
+                {% for cell in row %}
+                <td class="py-3 px-4">{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,31 @@
+<h2 class="text-2xl font-bold mb-4">Kelola Mata Kuliah</h2>
+<form id="matkulForm" class="mb-6">
+    <div class="flex space-x-4">
+        <input type="text" name="matkul" placeholder="Nama Mata Kuliah" class="flex-grow rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" required>
+        <button type="button" onclick="submitMatkul()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+            Tambah Mata Kuliah
+        </button>
+    </div>
+</form>
+<div class="overflow-x-auto">
+    <table class="min-w-full bg-white">
+        <thead class="bg-gray-800 text-white">
+            <tr>
+                <th class="py-3 px-4 text-left">Mata Kuliah</th>
+                <th class="py-3 px-4 text-left">Action</th>
+            </tr>
+        </thead>
+        <tbody class="text-gray-700">
+            {% for matkul in matkul_list %}
+            <tr class="{% if loop.index is even %}bg-gray-100{% endif %} hover:bg-gray-200">
+                <td class="py-3 px-4">{{ matkul[1] }}</td>
+                <td class="py-3 px-4">
+                    <button onclick="deleteMatkul({{ matkul[0] }})" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded text-sm transition duration-300">
+                        Hapus
+                    </button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
